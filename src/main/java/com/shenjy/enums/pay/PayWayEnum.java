@@ -6,19 +6,19 @@ package com.shenjy.enums.pay;
  * @author shenjy 2019/06/01
  */
 public enum PayWayEnum {
-    GF_ALIPAY(1, "官方支付宝"),
-    GF_WEPAY(2, "官方微信支付")
+    GF_ALIPAY(10L, "官方支付宝"),
+    GF_WEPAY(20L, "官方微信支付")
     ;
 
-    private Integer code;
+    private Long code;
     private String message;
 
-    PayWayEnum(Integer code, String message) {
+    PayWayEnum(Long code, String message) {
         this.code = code;
         this.message = message;
     }
 
-    public Integer getCode() {
+    public Long getCode() {
         return code;
     }
 

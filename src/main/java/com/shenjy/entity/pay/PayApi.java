@@ -32,9 +32,13 @@ public class PayApi implements Serializable {
     @TableField("merchant_id")
     private Long merchantId;
 
-    /** 支付回调地址 */
+    /** 支付回调接口地址 */
     @TableField("notify_url")
     private String notifyUrl;
+
+    /** 支付回调页面地址 */
+    @TableField("return_url")
+    private String returnUrl;
 
     /** 创建时间 */
     @TableField("ctime")

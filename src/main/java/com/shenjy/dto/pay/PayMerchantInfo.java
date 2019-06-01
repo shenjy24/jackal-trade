@@ -30,6 +30,9 @@ public class PayMerchantInfo {
     /** 支付公钥 */
     private String publicKey;
 
-    /** 支付回调地址 */
+    /** 支付回调接口地址 */
     private String notifyUrl;
+
+    /** 支付回调页面地址 */
+    private String returnUrl;
 }

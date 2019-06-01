@@ -60,6 +60,7 @@ public abstract class AbstractPayService implements BasePayService {
 
         PayMerchantInfo payMerchantInfo = BeanMapper.map(payMerchant, PayMerchantInfo.class);
         payMerchantInfo.setNotifyUrl(payApi.getNotifyUrl());
+        payMerchantInfo.setReturnUrl(payApi.getReturnUrl());
 
         return payMerchantInfo;
     }

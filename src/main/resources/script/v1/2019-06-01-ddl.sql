@@ -4,6 +4,7 @@ CREATE TABLE `pay_api` (
     `pay_way` tinyint unsigned not null comment '支付类型',
     `merchant_id` bigint unsigned not null comment '商户ID,关联表pay_merchant.merchant_id',
     `notify_url` varchar(256) not null comment '回调通知地址',
+    `return_url` varchar(256) comment '回调页面地址',
     `ctime` bigint unsigned not null comment '创建时间',
     `utime` bigint unsigned not null comment '更新时间',
     PRIMARY KEY (`pay_api_id`) USING BTREE
@@ -58,6 +59,7 @@ CREATE TABLE `pay_flow` (
     `flow_id` bigint unsigned NOT NULL COMMENT '支付流水id',
     `order_id` bigint unsigned NOT NULL COMMENT '交易订单id',
     `out_trade_id` varchar(128) DEFAULT NULL COMMENT '第三方订单id',
+    `uid` bigint unsigned not null comment '用户ID',
     `pay_status` tinyint unsigned NOT NULL DEFAULT '1' COMMENT '支付状态 1.未支付 2.支付中 3.支付成功 4.支付失败',
     `pay_price` decimal(20,5) NOT NULL COMMENT '支付金额，单位：元',
     `pay_way` tinyint unsigned NOT NULL COMMENT '支付方式',

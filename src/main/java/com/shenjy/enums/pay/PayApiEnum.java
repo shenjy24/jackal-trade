@@ -1,26 +1,29 @@
 package com.shenjy.enums.pay;
 
 /**
- * 【 支付方法枚举 】
+ * 支付方法枚举
+ * code为两位数，第一位表示payWay，第二位表示序号
+ * 1.支付宝
+ * 2.微信
  *
  * @author shenjy 2019/06/01
  */
 public enum PayApiEnum {
-    GF_ALIPAY_PAGE(1, PayWayEnum.GF_ALIPAY, "官方支付宝电脑支付"),
+    GF_ALIPAY_PAGE(10L, PayWayEnum.GF_ALIPAY, "官方支付宝电脑支付"),
 
     ;
 
-    private Integer code;
+    private Long code;
     private PayWayEnum payWay;
     private String message;
 
-    PayApiEnum(Integer code, PayWayEnum payWay, String message) {
+    PayApiEnum(Long code, PayWayEnum payWay, String message) {
         this.code = code;
         this.payWay = payWay;
         this.message = message;
     }
 
-    public Integer getCode() {
+    public Long getCode() {
         return code;
     }
 

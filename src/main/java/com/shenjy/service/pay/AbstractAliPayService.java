@@ -27,7 +27,7 @@ public abstract class AbstractAliPayService extends AbstractPayService {
 
     /** 支付宝支付网关 */
     @Value("trade.alipay.gateway")
-    private String gateway;
+    protected String gateway;
 
     /**
      * 交易创建，等待买家付款

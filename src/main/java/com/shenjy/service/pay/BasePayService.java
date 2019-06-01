@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  * 第三方支付顶层接口
- * 1、处理支付通知
+ * 1、处理支付回调通知
  * 2、创建支付元数据
  * 3、查询支付结果
  *
@@ -17,7 +17,7 @@ import java.util.Map;
 public interface BasePayService {
 
     /**
-     * 校验第三方支付通知
+     * 校验第三方支付回调通知
      *
      * @param payNotifyMap 第三方通知参数
      * @return
