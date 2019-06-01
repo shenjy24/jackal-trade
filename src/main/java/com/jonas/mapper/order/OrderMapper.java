@@ -1,8 +1,7 @@
-package com.shenjy.mapper.order;
+package com.jonas.mapper.order;
 
-import com.shenjy.entity.order.Order;
+import com.jonas.entity.order.Order;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

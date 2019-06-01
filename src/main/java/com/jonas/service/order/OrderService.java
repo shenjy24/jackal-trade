@@ -1,6 +1,6 @@
-package com.shenjy.service.order;
+package com.jonas.service.order;
 
-import com.shenjy.entity.order.Order;
+import com.jonas.entity.order.Order;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

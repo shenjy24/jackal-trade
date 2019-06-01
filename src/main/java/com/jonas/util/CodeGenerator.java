@@ -1,4 +1,4 @@
-package com.shenjy.util;
+package com.jonas.util;
 
 
 import com.baomidou.mybatisplus.generator.AutoGenerator;

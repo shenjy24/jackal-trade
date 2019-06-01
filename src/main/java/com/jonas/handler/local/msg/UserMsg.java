@@ -1,4 +1,4 @@
-package com.shenjy.handler.local.msg;
+package com.jonas.handler.local.msg;
 
 import com.jonas.service.localevent.LocalMsg;
 import lombok.AllArgsConstructor;

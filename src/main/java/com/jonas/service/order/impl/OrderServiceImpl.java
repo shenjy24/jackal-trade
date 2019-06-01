@@ -1,8 +1,8 @@
-package com.shenjy.service.order.impl;
+package com.jonas.service.order.impl;
 
-import com.shenjy.entity.order.Order;
-import com.shenjy.mapper.order.OrderMapper;
-import com.shenjy.service.order.OrderService;
+import com.jonas.entity.order.Order;
+import com.jonas.mapper.order.OrderMapper;
+import com.jonas.service.order.OrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

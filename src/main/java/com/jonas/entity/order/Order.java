@@ -1,4 +1,4 @@
-package com.shenjy.entity.order;
+package com.jonas.entity.order;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;

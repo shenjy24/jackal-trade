@@ -17,12 +17,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.shenjy</groupId>
-            <artifactId>jackal-server-api</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.jonas</groupId>
             <artifactId>mybatis-sharding-spring-boot-starter</artifactId>
             <version>1.0.0</version>

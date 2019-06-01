@@ -1,4 +1,4 @@
-package com.shenjy.config;
+package com.jonas.config;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.core.toolkit.SystemClock;

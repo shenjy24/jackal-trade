@@ -1,8 +1,7 @@
-package com.shenjy;
+package com.jonas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /**
  * 【 Spring Boot启动类 】
