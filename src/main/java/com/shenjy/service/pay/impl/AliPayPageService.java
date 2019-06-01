@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * 支付宝PC网站支付实现
  *
- * @author zwp.
+ * @author shenjy.
  */
 @Service(value = "alipayPage")
 public class AliPayPageService extends AbstractAliPayService {

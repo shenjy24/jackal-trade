@@ -5,7 +5,7 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
-#### 分库分表配置
+#### 主从配置
 sharding:
   jdbc:
     datasource:
@@ -29,18 +29,11 @@ sharding:
         username: root
         password: 123456
     config:
-      sharding:
-        tables:
-          order:
-            actual-data-nodes: ds0.order_$->{0..1}
-            table-strategy:
-              inline:
-                sharding-column: order_id
-                algorithm-expression: order_$->{order_id % 2}
-        master-slave-rules:
-          ds0:
-            master-data-source-name: master0
-            slave-data-source-names: slave0,slave1
+      masterslave:
+        load-balance-algorithm-type: random
+        name: ms
+        master-data-source-name: master0
+        slave-data-source-names: slave0,slave1
       props:
           sql:
             show: true
