@@ -3,6 +3,8 @@ package com.shenjy.entity.pay;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.shenjy.enums.StatusEnum;
+import com.shenjy.enums.pay.PayWayEnum;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -34,11 +36,11 @@ public class PayMerchant implements Serializable {
 
     /** 商户状态：1.正常 2.被封 */
     @TableField("merchant_status")
-    private Integer merchantStatus;
+    private StatusEnum merchantStatus;
 
     /** 支付类型 */
     @TableField("pay_way")
-    private Integer payWay;
+    private PayWayEnum payWay;
 
     /** 签名方式：rsa或rsa2 目前只用于支付宝 */
     @TableField("sign_type")

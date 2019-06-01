@@ -3,6 +3,10 @@ package com.shenjy.entity.pay;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.shenjy.enums.SystemTypeEnum;
+import com.shenjy.enums.pay.PayApiEnum;
+import com.shenjy.enums.pay.PaySceneEnum;
+import com.shenjy.enums.pay.PayWayEnum;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -22,19 +26,19 @@ public class PayApiMapping implements Serializable {
 
     /** 支付实现ID */
     @TableField("pay_api_id")
-    private Long payApiId;
+    private PayApiEnum payApiId;
 
     /** 支付类型 */
     @TableField("pay_way")
-    private Integer payWay;
+    private PayWayEnum payWay;
 
     /** 支付场景 */
     @TableField("pay_scene")
-    private Integer payScene;
+    private PaySceneEnum payScene;
 
     /** 系统类型：1.iOS 2.Android 3.PC */
     @TableField("system_type")
-    private Integer systemType;
+    private SystemTypeEnum systemType;
 
     /** 页面排序 */
     @TableField("sort")

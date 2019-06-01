@@ -3,6 +3,7 @@ package com.shenjy.entity.pay;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.shenjy.enums.pay.PayWayEnum;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -26,7 +27,7 @@ public class PayApi implements Serializable {
 
     /** 支付类型 */
     @TableField("pay_way")
-    private Integer payWay;
+    private PayWayEnum payWay;
 
     /** 商户ID,关联表pay_merchant.merchant_id */
     @TableField("merchant_id")

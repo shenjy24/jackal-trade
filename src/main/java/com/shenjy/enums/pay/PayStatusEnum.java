@@ -8,8 +8,8 @@ package com.shenjy.enums.pay;
 public enum PayStatusEnum {
     UN_PAY(1, "待付款"),
     PAY_ING(2, "付款中"),
-    PAY_SUCCESS(3, "付款成功"),
-    PAY_FAILURE(4, "付款失败");
+    SUCCESS(3, "付款成功"),
+    FAILURE(4, "付款失败");
 
     private Integer code;
     private String message;

@@ -4,6 +4,10 @@ import java.math.BigDecimal;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+
+import com.shenjy.enums.pay.PayApiEnum;
+import com.shenjy.enums.pay.PayStatusEnum;
+import com.shenjy.enums.pay.PayWayEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -51,7 +55,7 @@ private static final long serialVersionUID=1L;
      * 支付状态 1.未支付 2.支付中 3.支付成功 4.支付失败
      */
     @TableField("pay_status")
-    private Integer payStatus;
+    private PayStatusEnum payStatus;
 
     /**
      * 支付金额，单位：元
@@ -63,13 +67,13 @@ private static final long serialVersionUID=1L;
      * 支付方式
      */
     @TableField("pay_way")
-    private Integer payWay;
+    private PayWayEnum payWay;
 
     /**
      * 支付实现
      */
     @TableField("pay_api_id")
-    private Long payApiId;
+    private PayApiEnum payApiId;
 
     /**
      * 商户ID,关联表pay_merchant.merchant_id

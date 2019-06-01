@@ -3,25 +3,19 @@ package com.shenjy.enums.pay;
 import com.baomidou.mybatisplus.core.enums.IEnum;
 
 /**
- * 支付方法枚举
- * code为两位数，第一位表示payWay，第二位表示序号
- * 1.支付宝
- * 2.微信
+ * 支付场景枚举
  *
  * @author shenjy 2019/06/01
  */
-public enum PayApiEnum implements IEnum<Long> {
-    GF_ALIPAY_PAGE(10L, PayWayEnum.GF_ALIPAY, "官方支付宝电脑支付"),
+public enum PaySceneEnum implements IEnum<Long> {
 
     ;
 
     private Long code;
-    private PayWayEnum payWay;
     private String message;
 
-    PayApiEnum(Long code, PayWayEnum payWay, String message) {
+    PaySceneEnum(Long code, String message) {
         this.code = code;
-        this.payWay = payWay;
         this.message = message;
     }
 
@@ -29,19 +23,15 @@ public enum PayApiEnum implements IEnum<Long> {
         return code;
     }
 
-    public PayWayEnum getPayWay() {
-        return payWay;
-    }
-
     public String getMessage() {
         return message;
     }
 
-    public static PayApiEnum getEnum(Long code) {
+    public static PaySceneEnum getEnum(Long code) {
         if (code == null) {
             return null;
         }
-        for (PayApiEnum payWayEnum : PayApiEnum.values()) {
+        for (PaySceneEnum payWayEnum : PaySceneEnum.values()) {
             if (payWayEnum.getCode().equals(code)) {
                 return payWayEnum;
             }

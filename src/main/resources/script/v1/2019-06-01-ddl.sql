@@ -44,7 +44,7 @@ CREATE TABLE `order_base` (
     `order_price` decimal(20,5) not null comment '订单价格，单位：元',
     `pay_price` decimal(20,5) not null comment '支付价格，单位：元',
     `order_type` tinyint unsigned not null comment '订单类型',
-    `order_status` tinyint unsigned not null comment '订单状态 1.待付款 2.已付款，待处理 3.交易成功 4.交易失败',
+    `order_status` tinyint unsigned not null comment '订单状态 1.待付款 2.付款中 3.交易成功 4.交易失败',
     `deliver_status` tinyint unsigned not null comment '发货状态 1.待发货 2.发货中 3.已发货 4.发货失败',
     `pay_api_id` bigint unsigned not null comment '支付实现ID',
     `pay_way` tinyint unsigned not null comment '支付类型',

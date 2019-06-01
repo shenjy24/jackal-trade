@@ -4,6 +4,12 @@ import java.math.BigDecimal;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+
+import com.shenjy.enums.order.DeliverStatusEnum;
+import com.shenjy.enums.order.OrderStatusEnum;
+import com.shenjy.enums.order.OrderTypeEnum;
+import com.shenjy.enums.pay.PayApiEnum;
+import com.shenjy.enums.pay.PayWayEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -51,31 +57,31 @@ private static final long serialVersionUID=1L;
      * 订单类型
      */
     @TableField("order_type")
-    private Integer orderType;
+    private OrderTypeEnum orderType;
 
     /**
-     * 订单状态 1.待付款 2.已付款，待处理 3.交易成功 4.交易失败
+     * 订单状态 1.待付款 2.付款中 3.交易成功 4.交易失败
      */
     @TableField("order_status")
-    private Integer orderStatus;
+    private OrderStatusEnum orderStatus;
 
     /**
-     * 发货状态 1.待发货 2.发货中 3.已发货 4.发货失败
+     * 发货状态 1.待发货 2.发货中 3.发货成功 4.发货失败
      */
     @TableField("deliver_status")
-    private Integer deliverStatus;
+    private DeliverStatusEnum deliverStatus;
 
     /**
      * 支付实现ID
      */
     @TableField("pay_api_id")
-    private Long payApiId;
+    private PayApiEnum payApiId;
 
     /**
      * 支付类型
      */
     @TableField("pay_way")
-    private Integer payWay;
+    private PayWayEnum payWay;
 
     /**
      * pay_merchant主键ID

@@ -1,11 +1,13 @@
 package com.shenjy.enums.pay;
 
+import com.baomidou.mybatisplus.core.enums.IEnum;
+
 /**
  * 【 支付类型枚举 】
  *
  * @author shenjy 2019/06/01
  */
-public enum PayWayEnum {
+public enum PayWayEnum implements IEnum<Long> {
     GF_ALIPAY(10L, "官方支付宝"),
     GF_WEPAY(20L, "官方微信支付")
     ;
@@ -36,5 +38,15 @@ public enum PayWayEnum {
             }
         }
         return null;
+    }
+
+    @Override
+    public Long getValue() {
+        return this.code;
+    }
+
+    @Override
+    public String toString() {
+        return this.message;
     }
 }
