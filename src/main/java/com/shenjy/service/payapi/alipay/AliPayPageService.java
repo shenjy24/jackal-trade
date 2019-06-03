@@ -50,7 +50,7 @@ public class AliPayPageService extends AbstractAliPayService {
         model.setProductCode("FAST_INSTANT_TRADE_PAY");
         request.setBizModel(model);
         //接口回调
-        request.setNotifyUrl(payHost + payMerchant.getNotifyUrl());
+        request.setNotifyUrl(payMerchant.getNotifyUrl());
         //页面回调
         request.setReturnUrl(payMerchant.getReturnUrl() + flowId);
 

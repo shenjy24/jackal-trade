@@ -20,12 +20,6 @@ import org.springframework.beans.factory.annotation.Value;
  */
 public abstract class AbstractPayService implements BasePayService {
 
-    /**
-     * 服务端回调接口域名
-     */
-    @Value("${pay.host}")
-    protected String payHost;
-
     @Autowired
     protected PayApiService payApiService;
     @Autowired
