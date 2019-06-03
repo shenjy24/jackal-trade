@@ -33,6 +33,6 @@ public interface BasePayService {
      * @param userIp    用户IP
      * @return
      */
-    Map<String, String> createPayMetaData(Long flowId, BigDecimal payPrice, String goodsDesc, String userIp);
+    Map<String, Object> createPayMetaData(Long flowId, BigDecimal payPrice, String goodsDesc, String userIp);
 
 }

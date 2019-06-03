@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface PayMerchantService extends IService<PayMerchant> {
 
+    PayMerchant getMerchantById(Long merchantId);
 }

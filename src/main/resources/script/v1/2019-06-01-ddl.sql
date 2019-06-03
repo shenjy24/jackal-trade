@@ -5,6 +5,7 @@ CREATE TABLE `pay_api` (
     `merchant_id` bigint unsigned not null comment '商户ID,关联表pay_merchant.merchant_id',
     `notify_url` varchar(256) not null comment '回调通知地址',
     `return_url` varchar(256) comment '回调页面地址',
+    `use_status` tinyint unsigned not null default '1' comment '使用状态：1.使用 2.废弃',
     `ctime` bigint unsigned not null comment '创建时间',
     `utime` bigint unsigned not null comment '更新时间',
     PRIMARY KEY (`pay_api_id`) USING BTREE

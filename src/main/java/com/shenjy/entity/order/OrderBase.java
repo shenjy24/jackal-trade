@@ -47,6 +47,10 @@ private static final long serialVersionUID=1L;
     @TableField("order_price")
     private BigDecimal orderPrice;
 
+    /** 流水来源单号 */
+    @TableField("in_trade_id")
+    private String inTradeId;
+
     /**
      * 支付价格，单位：元
      */

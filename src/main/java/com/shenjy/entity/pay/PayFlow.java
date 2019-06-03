@@ -46,7 +46,7 @@ private static final long serialVersionUID=1L;
     private Long uid;
 
     /**
-     * 第三方订单id
+     * 第三方订单id (支付宝、微信等)
      */
     @TableField("out_trade_id")
     private String outTradeId;

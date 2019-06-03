@@ -3,6 +3,8 @@ package com.shenjy.service.order;
 import com.shenjy.entity.order.OrderBase;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  * 基础订单表 服务类
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface OrderBaseService extends IService<OrderBase> {
 
+    List<OrderBase> listOrderBase(Long uid, String outTradeId, Integer orderStatus);
 }

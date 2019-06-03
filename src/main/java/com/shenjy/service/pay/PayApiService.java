@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface PayApiService extends IService<PayApi> {
 
+    PayApi getPayApiById(Long payApiId);
 }

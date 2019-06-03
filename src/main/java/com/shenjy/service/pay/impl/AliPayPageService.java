@@ -30,8 +30,8 @@ public class AliPayPageService extends AbstractAliPayService {
     }
 
     @Override
-    public Map<String, String> createPayMetaData(Long flowId, BigDecimal payPrice, String goodsDesc, String userIp) {
-        Map<String, String> metaData = Maps.newHashMap();
+    public Map<String, Object> createPayMetaData(Long flowId, BigDecimal payPrice, String goodsDesc, String userIp) {
+        Map<String, Object> metaData = Maps.newHashMap();
         PayMerchantInfo payMerchant = getCurrentPayMerchant();
         //实例化客户端
         AlipayClient alipayClient = new DefaultAlipayClient(gateway, payMerchant.getAppId(),

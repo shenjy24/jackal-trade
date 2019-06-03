@@ -33,6 +33,10 @@ public class PayApi implements Serializable {
     @TableField("merchant_id")
     private Long merchantId;
 
+    /** 使用状态：1.使用 2.废弃 */
+    @TableField("use_status")
+    private Integer useStatus;
+
     /** 支付回调接口地址 */
     @TableField("notify_url")
     private String notifyUrl;
