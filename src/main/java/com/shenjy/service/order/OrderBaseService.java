@@ -2,6 +2,7 @@ package com.shenjy.service.order;
 
 import com.shenjy.entity.order.OrderBase;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.shenjy.enums.order.OrderStatusEnum;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ import java.util.List;
 public interface OrderBaseService extends IService<OrderBase> {
 
     List<OrderBase> listOrderBase(Long uid, String outTradeId, Integer orderStatus);
+
+    boolean updateOrderBase(Long orderId, OrderStatusEnum oldStatus, OrderStatusEnum newStatus);
 }

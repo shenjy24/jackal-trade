@@ -2,6 +2,7 @@ package com.shenjy.service.pay;
 
 import com.shenjy.entity.pay.PayFlow;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.shenjy.enums.pay.PayStatusEnum;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface PayFlowService extends IService<PayFlow> {
 
+    boolean updatePayFlow(Long flowId, String outTradeId, PayStatusEnum oldStatus, PayStatusEnum newStatus);
 }

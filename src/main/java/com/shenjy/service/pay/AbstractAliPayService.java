@@ -108,6 +108,6 @@ public abstract class AbstractAliPayService extends AbstractPayService {
 
         // 买家支付宝用户号
         String userAccount = payNotifyMap.get("buyer_id");
-        return new OperationResult(new PayNotifyInfo(payFlow.getUid(), flowId, outTradeId, payPrice, userAccount, paySuccess));
+        return new OperationResult(new PayNotifyInfo(payFlow, userAccount, paySuccess));
     }
 }

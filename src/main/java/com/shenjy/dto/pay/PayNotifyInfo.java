@@ -1,5 +1,6 @@
 package com.shenjy.dto.pay;
 
+import com.shenjy.entity.pay.PayFlow;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,24 +18,9 @@ import java.math.BigDecimal;
 public class PayNotifyInfo {
 
     /**
-     * 用户uid
+     * 流水
      */
-    private Long uid;
-
-    /**
-     * 支付流水号
-     */
-    private Long flowId;
-
-    /**
-     * 第三方支付流水号
-     */
-    private String outTradeId;
-
-    /**
-     * 回调金额
-     */
-    private BigDecimal payPrice;
+    private PayFlow payFlow;
 
     /**
      * 用户账号
