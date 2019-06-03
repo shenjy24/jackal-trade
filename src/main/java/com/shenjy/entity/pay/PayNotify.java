@@ -14,16 +14,16 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 支付流水表
+ * 支付回调通知表
  * </p>
  *
  * @author shenjy
- * @since 2019-06-01
+ * @since 2019-06-03
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class PayFlow implements Serializable {
+public class PayNotify implements Serializable {
 
 private static final long serialVersionUID=1L;
 
@@ -34,22 +34,16 @@ private static final long serialVersionUID=1L;
     private Long payFlowId;
 
     /**
-     * 交易订单id
-     */
-    @TableField("order_id")
-    private Long orderId;
-
-    /**
-     * 用户id
-     */
-    @TableField("uid")
-    private Long uid;
-
-    /**
-     * 第三方订单id (支付宝、微信等)
+     * 第三方订单id
      */
     @TableField("out_trade_id")
     private String outTradeId;
+
+    /**
+     * 第三方支付帐号
+     */
+    @TableField("out_account")
+    private String outAccount;
 
     /**
      * 支付状态 1.未支付 2.支付中 3.支付成功 4.支付失败

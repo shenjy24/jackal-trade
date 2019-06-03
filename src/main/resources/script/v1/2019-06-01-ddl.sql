@@ -57,7 +57,7 @@ CREATE TABLE `order_base` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='基础订单表';
 
 CREATE TABLE `pay_flow` (
-    `flow_id` bigint unsigned NOT NULL COMMENT '支付流水id',
+    `pay_flow_id` bigint unsigned NOT NULL COMMENT '支付流水id',
     `order_id` bigint unsigned NOT NULL COMMENT '交易订单id',
     `out_trade_id` varchar(128) DEFAULT NULL COMMENT '第三方订单id',
     `uid` bigint unsigned not null comment '用户ID',
@@ -68,6 +68,20 @@ CREATE TABLE `pay_flow` (
     `merchant_id` bigint unsigned NOT NULL COMMENT '商户ID,关联表pay_merchant.merchant_id',
     `ctime` bigint unsigned not null comment '创建时间',
     `utime` bigint unsigned not null comment '更新时间',
-    PRIMARY KEY (`flow_id`),
+    PRIMARY KEY (`pay_flow_id`),
     UNIQUE KEY `uk_order_id` (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='支付流水表';
+
+CREATE TABLE `pay_notify` (
+    `pay_flow_id` bigint unsigned NOT NULL COMMENT '支付流水id',
+    `out_trade_id` varchar(128) COMMENT '第三方订单id',
+    `out_account` varchar(128) comment '第三方支付帐号',
+    `pay_status` tinyint unsigned NOT NULL DEFAULT '1' COMMENT '支付状态 1.未支付 2.支付中 3.支付成功 4.支付失败',
+    `pay_price` decimal(20,5) NOT NULL COMMENT '支付金额，单位：元',
+    `pay_way` tinyint unsigned NOT NULL COMMENT '支付方式',
+    `pay_api_id` bigint unsigned NOT NULL COMMENT '支付实现',
+    `merchant_id` bigint unsigned NOT NULL COMMENT '商户ID,关联表pay_merchant.merchant_id',
+    `ctime` bigint unsigned not null comment '创建时间',
+    `utime` bigint unsigned not null comment '更新时间',
+    PRIMARY KEY (`pay_flow_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='支付回调通知表';

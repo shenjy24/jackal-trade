@@ -1,4 +1,4 @@
-package com.shenjy.service.pay.impl;
+package com.shenjy.service.payapi.alipay;
 
 import com.alipay.api.AlipayClient;
 import com.alipay.api.AlipayConstants;
@@ -9,7 +9,7 @@ import com.alipay.api.response.AlipayTradePagePayResponse;
 import com.google.common.collect.Maps;
 import com.shenjy.dto.pay.PayMerchantInfo;
 import com.shenjy.enums.pay.PayApiEnum;
-import com.shenjy.service.pay.AbstractAliPayService;
+import com.shenjy.service.payapi.AbstractAliPayService;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

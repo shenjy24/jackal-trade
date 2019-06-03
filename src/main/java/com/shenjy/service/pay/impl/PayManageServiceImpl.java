@@ -1,18 +1,22 @@
 package com.shenjy.service.pay.impl;
 
+import com.jonas.service.localevent.LocalEventSender;
 import com.shenjy.common.CachePrefix;
 import com.shenjy.common.OperationResult;
 import com.shenjy.dto.pay.PayNotifyInfo;
 import com.shenjy.entity.order.OrderBase;
 import com.shenjy.entity.pay.PayFlow;
+import com.shenjy.entity.pay.PayNotify;
 import com.shenjy.enums.order.OrderStatusEnum;
 import com.shenjy.enums.pay.PayApiEnum;
 import com.shenjy.enums.pay.PayStatusEnum;
-import com.shenjy.service.order.OrderBaseService;
-import com.shenjy.service.pay.BasePayService;
+import com.shenjy.handler.local.LocalTopic;
+import com.shenjy.handler.local.msg.DeliverMsg;
 import com.shenjy.service.pay.PayFlowService;
 import com.shenjy.service.pay.PayManageService;
-import com.shenjy.service.pay.PayServiceFactory;
+import com.shenjy.service.pay.PayNotifyService;
+import com.shenjy.service.order.OrderBaseService;
+import com.shenjy.service.payapi.*;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +43,10 @@ public class PayManageServiceImpl implements PayManageService {
     private PayFlowService payFlowService;
     @Autowired
     private OrderBaseService orderBaseService;
+    @Autowired
+    private PayNotifyService payNotifyService;
+    @Autowired
+    private LocalEventSender localEventSender;
 
     @Override
     public boolean handlePayNotify(Map<String, String> payNotifyMap, PayApiEnum payApiEnum) {
@@ -62,13 +70,11 @@ public class PayManageServiceImpl implements PayManageService {
         //获取流水
         PayFlow payFlow = notifyInfo.getPayFlow();
         // 平台支付流水号
-        Long flowId = payFlow.getFlowId();
+        Long flowId = payFlow.getPayFlowId();
         // 回调金额
         BigDecimal notifyPayPrice = payFlow.getPayPrice();
         // 第三方支付流水号
         String outTradeId = payFlow.getOutTradeId();
-        // 支付账号
-        String userAccount = notifyInfo.getUserAccount();
 
         if (null == flowId || StringUtils.isBlank(outTradeId)) {
             return false;
@@ -88,11 +94,19 @@ public class PayManageServiceImpl implements PayManageService {
             return false;
         }
 
-
-        // 创建支付回调通知记录
-
         PayStatusEnum payStatus = notifyInfo.getPaySuccess() ? PayStatusEnum.SUCCESS : PayStatusEnum.FAILURE;
         OrderStatusEnum orderStatus = notifyInfo.getPaySuccess() ? OrderStatusEnum.SUCCESS : OrderStatusEnum.FAILURE;
+
+        // 创建支付回调通知记录
+        PayNotify payNotify = new PayNotify();
+        payNotify.setMerchantId(payFlow.getMerchantId());
+        payNotify.setPayApiId(payFlow.getPayApiId());
+        payNotify.setPayWay(payFlow.getPayWay());
+        payNotify.setOutAccount(notifyInfo.getUserAccount());
+        payNotify.setOutTradeId(outTradeId);
+        payNotify.setPayPrice(payFlow.getPayPrice());
+        payNotify.setPayStatus(payStatus);
+        payNotifyService.save(payNotify);
 
         // 更新支付流水，更新前的状态必须是待支付
         boolean flag1 = payFlowService.updatePayFlow(flowId, outTradeId, PayStatusEnum.UN_PAY, payStatus);
@@ -108,6 +122,7 @@ public class PayManageServiceImpl implements PayManageService {
 
         if (PayStatusEnum.SUCCESS.equals(payStatus)) {
             //异步发货
+            localEventSender.publish(LocalTopic.TOPIC_DELIVER, new DeliverMsg(orderBase.getOrderId()));
         }
 
         return true;

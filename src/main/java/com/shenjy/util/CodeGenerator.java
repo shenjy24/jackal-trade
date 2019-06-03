@@ -50,7 +50,7 @@ public class CodeGenerator {
 
         //包配置
         PackageConfig packageConfig = new PackageConfig();
-        packageConfig.setParent("com.jonas");
+        packageConfig.setParent("com.shenjy");
         packageConfig.setEntity("entity." + moduleName);
         packageConfig.setMapper("mapper." + moduleName);
         packageConfig.setXml("mapper." + moduleName);
@@ -80,7 +80,7 @@ public class CodeGenerator {
     }
 
     public static void main(String[] args) {
-        generate("", "pay", "order_base", "pay_flow");
+        generate("", "pay", "pay_notify");
     }
 
 }

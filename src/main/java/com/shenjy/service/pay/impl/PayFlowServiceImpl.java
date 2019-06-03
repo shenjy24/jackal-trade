@@ -1,6 +1,5 @@
 package com.shenjy.service.pay.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.shenjy.entity.pay.PayFlow;
 import com.shenjy.enums.pay.PayStatusEnum;
@@ -24,7 +23,7 @@ public class PayFlowServiceImpl extends ServiceImpl<PayFlowMapper, PayFlow> impl
     public boolean updatePayFlow(Long flowId, String outTradeId, PayStatusEnum oldStatus, PayStatusEnum newStatus) {
         UpdateWrapper<PayFlow> wrapper = new UpdateWrapper<>();
         wrapper.lambda().eq(PayFlow::getPayStatus, oldStatus);
-        wrapper.lambda().eq(PayFlow::getFlowId, flowId);
+        wrapper.lambda().eq(PayFlow::getPayFlowId, flowId);
 
         wrapper.lambda().set(PayFlow::getPayStatus, newStatus);
         wrapper.lambda().set(PayFlow::getOutTradeId, outTradeId);

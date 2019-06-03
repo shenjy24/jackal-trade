@@ -1,7 +1,7 @@
-package com.shenjy.service.pay;
+package com.shenjy.service.payapi;
 
 import com.shenjy.enums.pay.PayApiEnum;
-import com.shenjy.service.pay.impl.AliPayPageService;
+import com.shenjy.service.payapi.alipay.AliPayPageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

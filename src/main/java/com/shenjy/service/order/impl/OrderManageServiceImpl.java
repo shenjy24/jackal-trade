@@ -12,7 +12,10 @@ import com.shenjy.enums.pay.PayApiEnum;
 import com.shenjy.enums.pay.PayStatusEnum;
 import com.shenjy.service.order.OrderBaseService;
 import com.shenjy.service.order.OrderManageService;
-import com.shenjy.service.pay.*;
+import com.shenjy.service.pay.PayApiService;
+import com.shenjy.service.pay.PayFlowService;
+import com.shenjy.service.pay.PayMerchantService;
+import com.shenjy.service.payapi.*;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -103,6 +106,6 @@ public class OrderManageServiceImpl implements OrderManageService {
             throw new BizException(BizErrorCode.PAY_API_NOT_EXIST);
         }
 
-        return payService.createPayMetaData(payFlow.getFlowId(), price, goodsDesc, userIp);
+        return payService.createPayMetaData(payFlow.getPayFlowId(), price, goodsDesc, userIp);
     }
 }

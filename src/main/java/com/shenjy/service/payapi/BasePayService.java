@@ -1,4 +1,4 @@
-package com.shenjy.service.pay;
+package com.shenjy.service.payapi;
 
 import com.shenjy.common.OperationResult;
 import com.shenjy.dto.pay.PayNotifyInfo;

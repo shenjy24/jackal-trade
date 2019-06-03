@@ -1,4 +1,4 @@
-package com.shenjy.service.pay;
+package com.shenjy.service.payapi;
 
 import com.alipay.api.AlipayConstants;
 import com.alipay.api.internal.util.AlipaySignature;
