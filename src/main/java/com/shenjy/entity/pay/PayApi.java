@@ -1,5 +1,8 @@
 package com.shenjy.entity.pay;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -27,6 +30,7 @@ public class PayApi implements Serializable {
 
     /** 支付类型 */
     @TableField("pay_way")
+    @JSONField(serialzeFeatures= SerializerFeature.WriteEnumUsingToString)
     private PayWayEnum payWay;
 
     /** 商户ID,关联表pay_merchant.merchant_id */
@@ -46,10 +50,10 @@ public class PayApi implements Serializable {
     private String returnUrl;
 
     /** 创建时间 */
-    @TableField("ctime")
+    @TableField(value = "ctime", fill = FieldFill.INSERT)
     private Long ctime;
 
-    /** 修改时间 */
-    @TableField("utime")
+    /** 更新时间 */
+    @TableField(value = "utime", fill = FieldFill.INSERT_UPDATE)
     private Long utime;
 }

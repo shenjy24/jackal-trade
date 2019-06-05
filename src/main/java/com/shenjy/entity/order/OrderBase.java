@@ -1,6 +1,8 @@
 package com.shenjy.entity.order;
 
 import java.math.BigDecimal;
+
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
@@ -48,8 +50,8 @@ private static final long serialVersionUID=1L;
     private BigDecimal orderPrice;
 
     /** 流水来源单号 */
-    @TableField("in_trade_id")
-    private String inTradeId;
+    @TableField("source_trade_id")
+    private String sourceTradeId;
 
     /**
      * 支付价格，单位：元
@@ -99,17 +101,12 @@ private static final long serialVersionUID=1L;
     @TableField("pay_time")
     private Long payTime;
 
-    /**
-     * 创建时间
-     */
-    @TableField("ctime")
+    /** 创建时间 */
+    @TableField(value = "ctime", fill = FieldFill.INSERT)
     private Long ctime;
 
-    /**
-     * 更新时间
-     */
-    @TableField("utime")
+    /** 更新时间 */
+    @TableField(value = "utime", fill = FieldFill.INSERT_UPDATE)
     private Long utime;
-
 
 }

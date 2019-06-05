@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.core.enums.IEnum;
  * @author shenjy
  */
 public enum OrderTypeEnum implements IEnum<Integer> {
+    GAME_PROPS(1, "购买游戏道具")
     ;
 
     private Integer code;

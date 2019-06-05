@@ -1,9 +1,23 @@
 server:
   port: 18080
 
+#logging:
+#  config: classpath:tmp-log4j2.xml
+
 spring:
   main:
     allow-bean-definition-overriding: true
+  redis:
+    host: 188.131.171.222
+    port: 6379
+    password: 123456
+    timeout: 1000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1s
+        max-idle: 8
+        min-idle: 0
 
 #### 主从配置
 sharding:
@@ -16,24 +30,41 @@ sharding:
         url: jdbc:mysql://localhost:3306/tradedb1?nullNamePatternMatchesAll=true&useSSL=false
         username: root
         password: 123456
+        maxActive: 10
+        initialSize: 1
+        minIdle: 1
+        validationQuery: select 1
+        testWhileIdle: true
       slave0:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/tradedb1?nullNamePatternMatchesAll=true&useSSL=false
+        url: jdbc:mysql://localhost:3306/tradedb2?nullNamePatternMatchesAll=true&useSSL=false
         username: root
         password: 123456
+        maxActive: 10
+        initialSize: 1
+        minIdle: 1
+        validationQuery: select 1
+        testWhileIdle: true
       slave1:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/tradedb1?nullNamePatternMatchesAll=true&useSSL=false
+        url: jdbc:mysql://localhost:3306/tradedb3?nullNamePatternMatchesAll=true&useSSL=false
         username: root
         password: 123456
+        maxActive: 10
+        initialSize: 1
+        minIdle: 1
+        validationQuery: select 1
+        testWhileIdle: true
     config:
       masterslave:
-        load-balance-algorithm-type: random
+        load-balance-algorithm-type: round_robin
         name: ms
         master-data-source-name: master0
-        slave-data-source-names: slave0,slave1
+        slave-data-source-names:
+          - slave0
+          - slave1
       props:
           sql:
             show: true
@@ -46,4 +77,17 @@ mybatis-plus:
       id-type: id_worker
   configuration:
     map-underscore-to-camel-case: true
+    default-enum-type-handler: com.baomidou.mybatisplus.extension.handlers.EnumTypeHandler
   type-enums-package: com.shenjy.enums
+
+#### 支付宝接口网关
+trade:
+  alipay:
+    gateway:
+
+#### 支付回调域名
+notify:
+  api:
+    host:
+  html:
+    host:

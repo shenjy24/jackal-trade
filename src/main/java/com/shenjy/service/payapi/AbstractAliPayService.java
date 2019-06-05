@@ -26,7 +26,7 @@ import static com.shenjy.common.BizErrorCode.*;
 public abstract class AbstractAliPayService extends AbstractPayService {
 
     /** 支付宝支付网关 */
-    @Value("trade.alipay.gateway")
+    @Value("${trade.alipay.gateway}")
     protected String gateway;
 
     /**

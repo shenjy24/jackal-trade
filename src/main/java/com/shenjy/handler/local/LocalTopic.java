@@ -7,8 +7,6 @@ package com.shenjy.handler.local;
  */
 public class LocalTopic {
 
-    public static final String TOPIC_USER = "topic.user";
-
     /** 支付回调发货 */
     public static final String TOPIC_DELIVER = "topic.deliver";
 }

@@ -1,6 +1,8 @@
 package com.shenjy.entity.pay;
 
 import java.math.BigDecimal;
+
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
@@ -81,16 +83,12 @@ private static final long serialVersionUID=1L;
     @TableField("merchant_id")
     private Long merchantId;
 
-    /**
-     * 创建时间
-     */
-    @TableField("ctime")
+    /** 创建时间 */
+    @TableField(value = "ctime", fill = FieldFill.INSERT)
     private Long ctime;
 
-    /**
-     * 更新时间
-     */
-    @TableField("utime")
+    /** 更新时间 */
+    @TableField(value = "utime", fill = FieldFill.INSERT_UPDATE)
     private Long utime;
 
 

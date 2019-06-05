@@ -1,11 +1,13 @@
 package com.shenjy.enums.pay;
 
+import com.baomidou.mybatisplus.core.enums.IEnum;
+
 /**
  * 支付状态枚举
  *
  * @author
  */
-public enum PayStatusEnum {
+public enum PayStatusEnum implements IEnum<Integer> {
     UN_PAY(1, "待付款"),
     PAY_ING(2, "付款中"),
     SUCCESS(3, "付款成功"),
@@ -36,6 +38,15 @@ public enum PayStatusEnum {
         return null;
     }
 
+    @Override
+    public Integer getValue() {
+        return this.code;
+    }
+
+    @Override
+    public String toString() {
+        return this.message;
+    }
 }
 
 

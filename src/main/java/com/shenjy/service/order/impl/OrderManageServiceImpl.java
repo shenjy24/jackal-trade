@@ -8,6 +8,7 @@ import com.shenjy.entity.pay.PayFlow;
 import com.shenjy.entity.pay.PayMerchant;
 import com.shenjy.enums.order.DeliverStatusEnum;
 import com.shenjy.enums.order.OrderStatusEnum;
+import com.shenjy.enums.order.OrderTypeEnum;
 import com.shenjy.enums.pay.PayApiEnum;
 import com.shenjy.enums.pay.PayStatusEnum;
 import com.shenjy.service.order.OrderBaseService;
@@ -80,9 +81,10 @@ public class OrderManageServiceImpl implements OrderManageService {
         //保存订单
         OrderBase orderBase = new OrderBase();
         orderBase.setUid(uid);
+        orderBase.setOrderType(OrderTypeEnum.GAME_PROPS);
         orderBase.setOrderPrice(price);
         orderBase.setPayPrice(price);
-        orderBase.setInTradeId(inTradeId);
+        orderBase.setSourceTradeId(inTradeId);
         orderBase.setPayApiId(payApiEnum);
         orderBase.setPayWay(payApiEnum.getPayWay());
         orderBase.setMerchantId(merchant.getMerchantId());

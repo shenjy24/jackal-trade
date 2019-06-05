@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="AppName">trade</Property>
+        <Property name="GwsLogFile">log/gws.log</Property>
+    </Properties>
+    <Appenders>
+        <RollingFile name="GwsLogFileAppender" fileName="${GwsLogFile}"
+                     filePattern="${GwsLogFile}-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout
+                    pattern="time=%d{yyyy-MM-dd}T%d{HH:mm:ss.SSS+0800}`appName=${AppName}`logLevel=%-5p`%m %ex%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="warn">
+            <AppenderRef ref="GwsLogFileAppender"/>
+        </Root>
+    </Loggers>
+
+</Configuration>

@@ -7,20 +7,20 @@ import com.baomidou.mybatisplus.core.enums.IEnum;
  *
  * @author shenjy 2019/06/01
  */
-public enum PayWayEnum implements IEnum<Long> {
-    GF_ALIPAY(10L, "官方支付宝"),
-    GF_WEPAY(20L, "官方微信支付")
+public enum PayWayEnum implements IEnum<Integer> {
+    GF_ALIPAY(10, "官方支付宝"),
+    GF_WEPAY(20, "官方微信支付")
     ;
 
-    private Long code;
+    private Integer code;
     private String message;
 
-    PayWayEnum(Long code, String message) {
+    PayWayEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }
 
-    public Long getCode() {
+    public Integer getCode() {
         return code;
     }
 
@@ -41,7 +41,7 @@ public enum PayWayEnum implements IEnum<Long> {
     }
 
     @Override
-    public Long getValue() {
+    public Integer getValue() {
         return this.code;
     }
 

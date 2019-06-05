@@ -1,5 +1,6 @@
 package com.shenjy.entity.pay;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -49,10 +50,10 @@ public class PayApiMapping implements Serializable {
     private String remark;
 
     /** 创建时间 */
-    @TableField("ctime")
+    @TableField(value = "ctime", fill = FieldFill.INSERT)
     private Long ctime;
 
-    /** 修改时间 */
-    @TableField("utime")
+    /** 更新时间 */
+    @TableField(value = "utime", fill = FieldFill.INSERT_UPDATE)
     private Long utime;
 }

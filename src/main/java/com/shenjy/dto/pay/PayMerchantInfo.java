@@ -1,5 +1,6 @@
 package com.shenjy.dto.pay;
 
+import com.shenjy.enums.pay.PayWayEnum;
 import lombok.Data;
 
 /**
@@ -19,7 +20,7 @@ public class PayMerchantInfo {
     private String appId;
 
     /** 支付类型 */
-    private Integer payWay;
+    private PayWayEnum payWay;
 
     /** 签名方式：rsa或rsa2 目前只用于支付宝 */
     private String signType;
